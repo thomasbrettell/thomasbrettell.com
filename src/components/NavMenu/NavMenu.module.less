@@ -1,0 +1,100 @@
+.NavMenu {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.backdrop {
+  background: rgba(0, 0, 0);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.menu {
+  width: 200px;
+  background-color: var(--color-black);
+  height: 100%;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  transform: translateX(-100%);
+  transition: transform 300ms ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  padding-top: 70px;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    background-color: var(--color-black);
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(1.5);
+    }
+  }
+
+  a {
+    display: block;
+    color: var(--color-white);
+    padding: 15px 0 15px 15px;
+    font-weight: 700;
+    font-size: 1.25em;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    sup {
+      text-transform: lowercase;
+      font-style: italic;
+    }
+  }
+}
+
+.navmenu-enter {
+  .menu {
+    transform: translateX(0);
+  }
+
+  .backdrop {
+    opacity: 0.5;
+  }
+}
+.navmenu-enter-active {
+  .menu {
+    transform: translateX(0);
+  }
+
+  .backdrop {
+    opacity: 0.5;
+  }
+}
+.navmenu-exit {
+  .menu {
+    transform: translateX(0);
+  }
+
+  .backdrop {
+    opacity: 0.5;
+  }
+}
+.navmenu-exit-active {
+  .menu {
+    transform: translateX(-100%);
+  }
+
+  .backdrop {
+    opacity: 0;
+  }
+}

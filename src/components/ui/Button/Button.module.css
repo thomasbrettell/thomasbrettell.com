@@ -1,0 +1,22 @@
+.Button {
+  background-color: var(--color-black);
+  display: inline-block;
+  border-radius: 4px;
+  color: var(--color-white);
+  text-transform: uppercase;
+  border: none;
+  font-weight: 700;
+  padding: 10px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: box-shadow .1s ease-in-out, transform .1s ease-in-out;
+}
+
+.Button:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.Button:active {
+  transform: scale(.98);
+}

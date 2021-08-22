@@ -1,0 +1,28 @@
+.SnackBar {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  display: inline-block;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  z-index: 5;
+  transform: translate(-50%, 100%);
+  width: 350px;
+  padding: 15px;
+  border-radius: 4px;
+  transition: bottom 200ms ease-in;
+}
+
+.snackbar-enter-active {
+  transition: bottom 200ms ease-out;
+  bottom: 60px;
+}
+.snackbar-enter {
+  bottom: 60px;
+}
+.snackbar-exit-active {
+  bottom: 0;
+}
+.snackbar-exit {
+  bottom: 0;
+}
