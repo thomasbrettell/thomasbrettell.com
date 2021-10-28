@@ -41,7 +41,7 @@ export const work = [
   {
     name: 'National Digital Health Strategy Survey',
     description:
-      "Collection of surveys to help guide the future of Australia's digital health approach.",
+      "Collection of surveys to help guide the future of Australias digital health approach.",
     image:
       'https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg',
     link: 'https://www.google.com',
