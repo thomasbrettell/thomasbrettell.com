@@ -11,7 +11,7 @@ const Home = () => {
         <title>Tom Brettell Portfolio</title>
         <meta
           name='description'
-          content="This is Thomas Brettell's portfolio"
+          content="My portfolio!"
         />
       </Head>
       <Grid>

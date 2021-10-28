@@ -1,12 +1,13 @@
 import {FC, useState} from 'react';
 import styled from 'styled-components';
-import {Tabs, Text, useMediaQuery, Button, Link} from '@geist-ui/react';
+import {Tabs, Text, useMediaQuery, Button} from '@geist-ui/react';
 import MainWrapper from './MainWrapper';
 import {useRouter} from 'next/dist/client/router';
 import Menu from '@geist-ui/react-icons/menu';
 import {breakPoints} from '../constants';
 import MobileMenuModal from './MobileMenuModal';
 import {pages} from '../constants';
+import Link from 'next/link';
 
 const Box = styled.header`
   position: fixed;
@@ -27,12 +28,16 @@ const Box = styled.header`
     left: 0px;
     right: 0px;
     bottom: 0px;
-    background-color: rgb(234, 234, 234);
+    background-color: var(--border-grey);
   }
 
   @media (max-width: ${breakPoints.xs}) {
     padding: 10px 0;
   }
+`;
+
+const A = styled.a`
+  color: black;
 `;
 
 const Nav = styled.nav`
@@ -68,8 +73,6 @@ const Header: FC = () => {
     router.push(value);
   };
 
-  console.log(isXS);
-
   return (
     <>
       <MobileMenuModal state={openModal} closeHandler={closeHandler} />
@@ -77,7 +80,9 @@ const Header: FC = () => {
         <MainWrapper>
           <Flex>
             <Text h6={!isXS} span={isXS}>
-              <Link href='/'>Thomas Brettell</Link>
+              <Link href='/' passHref>
+                <A>Thomas Brettell</A>
+              </Link>
             </Text>
 
             {isXS && (

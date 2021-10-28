@@ -1,5 +1,5 @@
 import type {NextPage} from 'next';
-import {Text, Description} from '@geist-ui/react';
+import {Text, Description, Divider} from '@geist-ui/react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import {work, breakPoints} from '../constants';
@@ -29,14 +29,15 @@ const ImageCard = styled.div`
   margin: 0 0 0 0;
   position: relative;
   overflow: hidden;
+  margin-top: 10px;
 `;
 
 const GridItemContainer = styled.div`
   width: 100%;
-  margin-top: 25px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
+  height: 100%;
 `;
 
 const Image = styled.img`
@@ -70,6 +71,10 @@ const Grid = styled.div`
   }
 `;
 
+const A = styled.a`
+  margin-top: 25px;
+`
+
 const Work: NextPage = () => {
   return (
     <>
@@ -78,18 +83,20 @@ const Work: NextPage = () => {
         <meta name='description' content='See my work!' />
       </Head>
       <Text h1>My Work</Text>
+      <Text p>Some of the projects I have done or worked on.</Text>
+      <Divider />
       <Grid>
         {work.map((el, index) => (
           <Link key={index} href={el.link ? el.link : ''} passHref>
-            <a target='_blank'>
+            <A target='_blank'>
               <GridItemContainer>
-                <Description title={<Title>{el.name}</Title>} />
+                <Description title={<Title>{el.name}</Title>} content={el.description}/>
                 <ImageCard>
                   <Image src={el.image} />
                   <Aspect />
                 </ImageCard>
               </GridItemContainer>
-            </a>
+            </A>
           </Link>
         ))}
       </Grid>
