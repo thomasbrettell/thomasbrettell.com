@@ -12,7 +12,7 @@ const Sketches: NextPage = () => {
       <Text h1>My Sketches</Text>
       <Text p>
         I have recently become quiet interesting in the world of computer
-        graphics and generative art so I've decided to document my progress
+        graphics and generative art so I&apos;ve decided to document my progress
         here.
       </Text>
       <Text p>

@@ -92,7 +92,7 @@ const Work: NextPage = () => {
               <GridItemContainer>
                 <Description title={<Title>{el.name}</Title>} content={el.description}/>
                 <ImageCard>
-                  <Image src={el.image} />
+                  <Image src={el.image} alt={el.name}/>
                   <Aspect />
                 </ImageCard>
               </GridItemContainer>
