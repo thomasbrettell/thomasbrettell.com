@@ -20,7 +20,8 @@ import axios from 'axios';
 import Linkedin from '@geist-ui/react-icons/linkedin';
 import Mail from '@geist-ui/react-icons/mail';
 import Copy from '@geist-ui/react-icons/copy';
-import {linkedInLink, email} from '../constants';
+import Github from '@geist-ui/react-icons/github';
+import {linkedInLink, email, gitHubLink} from '../constants';
 
 const Form = styled.form`
   max-width: 250px;
@@ -105,24 +106,10 @@ const Contact: NextPage = () => {
           <span style={{textTransform: 'lowercase'}}>{email}</span>
         </Button>
       </Flex>
-
-      {/* <Button iconRight={<Copy />} onClick={copyHandler} type='abort'>
-        {email}
-      </Button> */}
-      {/* <Flex>
-        <Button
-          scale={0.5}
-          padding='5px'
-          icon={<Copy />}
-          onClick={copyHandler}
-          auto
-          type='abort'
-        >
-          <Spacer inline w={0.1} />
-          {email}
-        </Button>
-      </Flex> */}
-      <a href={linkedInLink}>
+      <a href={`mailto:${email}`}>
+        <Button iconRight={<Mail />} auto scale={2 / 3} px={0.6} mr='10px' />
+      </a>
+      <a href={linkedInLink} target='_blank' rel='noreferrer'>
         <Button
           iconRight={<Linkedin />}
           auto
@@ -131,8 +118,8 @@ const Contact: NextPage = () => {
           mr='10px'
         />
       </a>
-      <a href={`mailto:${email}`}>
-        <Button iconRight={<Mail />} auto scale={2 / 3} px={0.6} />
+      <a href={gitHubLink} target='_blank' rel='noreferrer'>
+        <Button iconRight={<Github />} auto scale={2 / 3} px={0.6} />
       </a>
       <Divider my='30px' />
       <Form onSubmit={handleSubmit} onChange={fillingOutFormHandler}>
