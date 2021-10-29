@@ -17,7 +17,7 @@ export const work = [
   {
     name: 'Evolving Forest',
     description:
-      'An ambitious NFT project involving randomly generated fantasy forests.',
+      'A NFT project involving randomly generated fantasy forests.',
     image:
       'https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg',
     link: 'https://www.google.com',
@@ -25,7 +25,7 @@ export const work = [
   {
     name: 'Rainicorn',
     description:
-      'A hard hitting cryptocurrency project including an accompanied NFT trading platform and card game.',
+      'A hard hitting cryptocurrency project + NFT trading platform and card game.',
     image:
       'https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg',
     link: 'https://www.google.com',

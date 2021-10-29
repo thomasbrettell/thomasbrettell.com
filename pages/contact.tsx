@@ -1,12 +1,26 @@
 import type {NextPage} from 'next';
 import Head from 'next/head';
-import {Text, Input, Textarea, Button, Note} from '@geist-ui/react';
+import {
+  Text,
+  Input,
+  Textarea,
+  Button,
+  Note,
+  Divider,
+  Spacer,
+  useClipboard,
+  useToasts,
+} from '@geist-ui/react';
 import styled from 'styled-components';
 import {breakPoints} from '../constants';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import {useState} from 'react';
 import axios from 'axios';
+import Linkedin from '@geist-ui/react-icons/linkedin';
+import Mail from '@geist-ui/react-icons/mail';
+import Copy from '@geist-ui/react-icons/copy';
+import {linkedInLink, email} from '../constants';
 
 const Form = styled.form`
   max-width: 250px;
@@ -20,6 +34,12 @@ const FormControl = styled.div`
   margin-bottom: 20px;
 `;
 
+const Flex = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
 interface SubmitStatus {
   type: 'success' | 'error';
   message: string;
@@ -28,6 +48,8 @@ interface SubmitStatus {
 const Contact: NextPage = () => {
   const [submitted, setSubmitted] = useState<SubmitStatus | null>(null);
   const [loading, setLoading] = useState(false);
+  const {copy} = useClipboard();
+  const [, setToast] = useToasts();
 
   const validationSchema = Yup.object({
     enquiry: Yup.string().required('Required'),
@@ -65,6 +87,11 @@ const Contact: NextPage = () => {
     setSubmitted(null);
   };
 
+  const copyHandler = () => {
+    copy(email);
+    setToast({text: 'Copied to clipboard'});
+  };
+
   return (
     <>
       <Head>
@@ -72,6 +99,42 @@ const Contact: NextPage = () => {
         <meta name='description' content='Contact me!' />
       </Head>
       <Text h1>Contact me</Text>
+      <Flex>
+        <Button icon={<Copy />} type='abort' scale={0.8} onClick={copyHandler}>
+          <Spacer w={0.6} />
+          <span style={{textTransform: 'lowercase'}}>{email}</span>
+        </Button>
+      </Flex>
+
+      {/* <Button iconRight={<Copy />} onClick={copyHandler} type='abort'>
+        {email}
+      </Button> */}
+      {/* <Flex>
+        <Button
+          scale={0.5}
+          padding='5px'
+          icon={<Copy />}
+          onClick={copyHandler}
+          auto
+          type='abort'
+        >
+          <Spacer inline w={0.1} />
+          {email}
+        </Button>
+      </Flex> */}
+      <a href={linkedInLink}>
+        <Button
+          iconRight={<Linkedin />}
+          auto
+          scale={2 / 3}
+          px={0.6}
+          mr='10px'
+        />
+      </a>
+      <a href={`mailto:${email}`}>
+        <Button iconRight={<Mail />} auto scale={2 / 3} px={0.6} />
+      </a>
+      <Divider my='30px' />
       <Form onSubmit={handleSubmit} onChange={fillingOutFormHandler}>
         {submitted && (
           <FormControl>

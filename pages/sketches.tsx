@@ -6,7 +6,7 @@ const Sketches: NextPage = () => {
   return (
     <>
       <Head>
-        <title>About | Tom Brettell Portfolio</title>
+        <title>Sketches | Tom Brettell Portfolio</title>
         <meta name='description' content='My processing sketches!' />
       </Head>
       <Text h1>My Sketches</Text>
