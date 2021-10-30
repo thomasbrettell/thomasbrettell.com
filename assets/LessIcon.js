@@ -1,6 +1,8 @@
 import React from "react";
 
 function Icon() {
+  const randomId = `lessIcon-${Math.random()}`
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,7 +11,7 @@ function Icon() {
     >
       <defs>
         <linearGradient
-          id="a"
+          id={randomId}
           x1="-5592.21"
           x2="-5592.21"
           y1="-3029.09"
@@ -23,7 +25,7 @@ function Icon() {
         </linearGradient>
       </defs>
       <path
-        fill="url(#a)"
+        fill={`url(#${randomId})`}
         d="M-5537-3060.71a6.86 6.86 0 01-6.84 6.85h-57.5a6.86 6.86 0 01-6.84-6.85v-21.78a6.86 6.86 0 016.84-6.84h57.5a6.86 6.86 0 016.84 6.84z"
         transform="translate(5613.07 3089.55)"
       ></path>

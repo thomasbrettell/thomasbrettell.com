@@ -5,7 +5,7 @@ import {Tabs, TabButton, TabContainer} from '../components/CustomTabGroup';
 import {useState} from 'react';
 import styled, {css} from 'styled-components';
 import {frontend, backend, design} from '../skills';
-
+import {breakPoints} from '../constants';
 interface SkillContainerProps {
   spaced?: boolean;
 }
@@ -36,6 +36,20 @@ const SkillItem = styled.div`
   margin-right: 25px;
   margin-bottom: 25px;
   position: relative;
+`;
+
+const Desktop = styled.div`
+  @media (max-width: ${breakPoints.xs}) {
+    display: none;
+  }
+`;
+
+const Mobile = styled.div`
+  display: none;
+
+  @media (max-width: ${breakPoints.xs}) {
+    display: block;
+  }
 `;
 
 const About: NextPage = () => {
@@ -72,40 +86,38 @@ const About: NextPage = () => {
       </Text>
       <Divider my='30px' />
       <Text h3>Skills</Text>
-      {!isXs && (
-        <>
-          <Text h5>Frontend</Text>
-          <SkillContainer>
-            {frontend.map((el) => (
-              <SkillItem key={el.name}>
-                <el.icon />
-                <span>{el.name}</span>
-              </SkillItem>
-            ))}
-          </SkillContainer>
-          <Divider mb='20px' />
-          <Text h5>Design</Text>
-          <SkillContainer>
-            {design.map((el) => (
-              <SkillItem key={el.name}>
-                <el.icon />
-                <span>{el.name}</span>
-              </SkillItem>
-            ))}
-          </SkillContainer>
-          <Divider mb='20px' />
-          <Text h5>Backend</Text>
-          <SkillContainer>
-            {backend.map((el) => (
-              <SkillItem key={el.name}>
-                <el.icon />
-                <span>{el.name}</span>
-              </SkillItem>
-            ))}
-          </SkillContainer>
-        </>
-      )}
-      {isXs && (
+      <Desktop>
+        <Text h5>Frontend</Text>
+        <SkillContainer>
+          {frontend.map((el) => (
+            <SkillItem key={el.name}>
+              <el.icon />
+              <span>{el.name}</span>
+            </SkillItem>
+          ))}
+        </SkillContainer>
+        <Divider mb='20px' />
+        <Text h5>Design</Text>
+        <SkillContainer>
+          {design.map((el) => (
+            <SkillItem key={el.name}>
+              <el.icon />
+              <span>{el.name}</span>
+            </SkillItem>
+          ))}
+        </SkillContainer>
+        <Divider mb='20px' />
+        <Text h5>Backend</Text>
+        <SkillContainer>
+          {backend.map((el) => (
+            <SkillItem key={el.name}>
+              <el.icon />
+              <span>{el.name}</span>
+            </SkillItem>
+          ))}
+        </SkillContainer>
+      </Desktop>
+      <Mobile>
         <TabContainer>
           <Tabs>
             <TabButton
@@ -156,7 +168,7 @@ const About: NextPage = () => {
             </SkillContainer>
           </Card.Content>
         </TabContainer>
-      )}
+      </Mobile>
     </>
   );
 };
