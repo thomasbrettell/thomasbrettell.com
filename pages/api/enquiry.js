@@ -19,7 +19,7 @@ const handler = (req, res) => {
   return transporter
     .sendMail({
       to: 'thomas.a.brettell@gmail.com',
-      from: 'thomas.a.brettell@gmail.com',
+      from: 'me@thomasbrettell.com',
       subject: 'Enquiry from portfolio',
       html: `
         <p>${email}</p>
@@ -30,6 +30,7 @@ const handler = (req, res) => {
       return res.status(200).json(result);
     })
     .catch((err) => {
+      console.log(err)
       return res.status(400).json(err);
     });
 };
