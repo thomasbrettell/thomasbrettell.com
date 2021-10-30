@@ -13,19 +13,21 @@ interface WorkItem {
   name: string;
   description: string;
   image: StaticImageData;
-  link: string | 'not-available' | 'coming-soon';
+  link?: string;
+  notPublic?: boolean;
+  comingSoon?: boolean;
 }
 
 export const work: WorkItem[] = [
   {
     name: 'Evolving Forest',
-    description: 'A NFT project involving randomly generated fantasy trees.',
+    description: 'NFT project involving randomly generated fantasy trees.',
     image: EvolvingForestImg,
     link: 'https://evolvingforest.io/',
   },
   {
     name: 'Rainicorn',
-    description: 'A cryptocurrency + NFT trading platform and card game.',
+    description: 'Cryptocurrency + NFT trading platform and card game.',
     image: RainiImg,
     link: 'https://www.raini.io/',
   },
@@ -47,7 +49,7 @@ export const work: WorkItem[] = [
     name: 'The Limbic',
     description: 'Site for global health news, events and webinars.',
     image: TheLimbicImg,
-    link: 'https://www.google.com',
+    link: 'https://thelimbic.com/',
   },
   {
     name: 'Mindr',
@@ -60,7 +62,7 @@ export const work: WorkItem[] = [
     name: 'Medax',
     description: 'Platform to host Patient Familiarisation Programs.',
     image: MedaxImg,
-    link: 'not-available'
+    notPublic: true,
   },
   {
     name: 'Switz',
@@ -73,13 +75,13 @@ export const work: WorkItem[] = [
     description:
       'Website for an Australian and New Zealand horticulture company.',
     image: CaznaImg,
-    link: 'https://www.google.com',
+    link: 'https://www.cazna.com.au/',
   },
   {
     name: 'Sacred Shapes',
     description: 'Website for a bespoke jewellery company + custom CMS.',
     image: SacredShapesImg,
-    link: 'coming-soon'
+    comingSoon: true
   },
   {
     name: 'The Company We:Keep',

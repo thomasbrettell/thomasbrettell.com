@@ -1,5 +1,5 @@
 import type {NextPage} from 'next';
-import {Text, Description, Divider} from '@geist-ui/react';
+import {Text, Description, Divider, Tag, useToasts} from '@geist-ui/react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import {breakPoints} from '../constants';
@@ -64,7 +64,36 @@ const A = styled.a`
   margin-top: 25px;
 `;
 
+const ComingSoonOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(250, 250, 250);
+  opacity: 0.5;
+  z-index: 1;
+`;
+
+const Center = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+`;
+
 const Work: NextPage = () => {
+  const [, setToast] = useToasts();
+
+  const toastHandler = () => {
+    setToast({text: 'Not publically available.', type: 'warning'});
+  };
+
   return (
     <>
       <Head>
@@ -76,25 +105,36 @@ const Work: NextPage = () => {
       <Divider />
       <Grid>
         {work.map((el, index) => (
-          <Link key={index} href={el.link ? el.link : ''} passHref>
-            <A target='_blank'>
-              <GridItemContainer>
-                <Description
-                  title={<Title>{el.name}</Title>}
-                  content={el.description}
+          <A
+            target='_blank'
+            key={index}
+            href={el.link ? el.link : undefined}
+            onClick={el.notPublic ? toastHandler : undefined}
+          >
+            <GridItemContainer>
+              <Description
+                title={<Title>{el.name}</Title>}
+                content={el.description}
+              />
+              <ImageCard>
+                {el.comingSoon && (
+                  <>
+                    <ComingSoonOverlay />
+                    <Center>
+                      <Tag invert>Coming Soon</Tag>
+                    </Center>
+                  </>
+                )}
+                <Image
+                  src={el.image}
+                  alt={el.name}
+                  layout='fill'
+                  objectFit='cover'
                 />
-                <ImageCard>
-                  <Image
-                    src={el.image}
-                    alt={el.name}
-                    layout='fill'
-                    objectFit='cover'
-                  />
-                  <Aspect />
-                </ImageCard>
-              </GridItemContainer>
-            </A>
-          </Link>
+                <Aspect />
+              </ImageCard>
+            </GridItemContainer>
+          </A>
         ))}
       </Grid>
     </>

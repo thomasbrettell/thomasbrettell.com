@@ -21,8 +21,8 @@ const Home = () => {
           Brettell
         </Name>
         <NavButton href='/work'>WORK</NavButton>
-        <NavButton href='/about'>ABOUT</NavButton>
-        <NavButton href='/contact'>CONTACT</NavButton>
+        <NavButton href='/about' noBorder>ABOUT</NavButton>
+        <NavButton href='/contact' noBorder>CONTACT</NavButton>
         <NavButton href='/sketches'>SKETCHES</NavButton>
       </Grid>
     </>

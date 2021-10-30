@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import {FC} from 'react';
 import Link from 'next/link';
 
@@ -27,7 +27,11 @@ const NavLink = styled.a`
   }
 `;
 
-const Card = styled.div`
+interface CardProps {
+  noBorder?: boolean;
+}
+
+const Card = styled.div<CardProps>`
   border-radius: 0;
   display: flex;
   align-items: center;
@@ -37,17 +41,23 @@ const Card = styled.div`
   width: 100%;
   height: 100%;
   border: 1px solid var(--border-grey);
+
+  ${props => props.noBorder && css`
+    border: none;
+  `}
+
 `;
 
 interface NavButtonProps {
   href: string;
+  noBorder?: boolean;
 }
 
-const NavButton: FC<NavButtonProps> = ({children, href}) => {
+const NavButton: FC<NavButtonProps> = ({children, href, noBorder}) => {
   return (
     <Link href={href} passHref>
       <NavLink>
-        <Card>
+        <Card noBorder={noBorder}>
           <Underline>{children}</Underline>
         </Card>
       </NavLink>
