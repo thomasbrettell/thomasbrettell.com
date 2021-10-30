@@ -20,7 +20,7 @@ const handler = (req, res) => {
     .sendMail({
       to: 'thomas.a.brettell@gmail.com',
       from: 'me@thomasbrettell.com',
-      subject: 'Enquiry from portfolio',
+      subject: `New portfolio enquiry from ${email}`,
       html: `
         <p>${email}</p>
         <p>${enquiry}</p>

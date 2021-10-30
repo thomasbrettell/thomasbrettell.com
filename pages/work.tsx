@@ -2,14 +2,16 @@ import type {NextPage} from 'next';
 import {Text, Description, Divider} from '@geist-ui/react';
 import Head from 'next/head';
 import styled from 'styled-components';
-import {work, breakPoints} from '../constants';
+import {breakPoints} from '../constants';
 import Link from 'next/link';
+import work from '../work';
+import Image from 'next/image';
 
 const Aspect = styled.div`
   &:after {
     content: '';
     display: block;
-    padding-bottom: 100%;
+    padding-bottom: 56.25%;
   }
 `;
 
@@ -40,40 +42,27 @@ const GridItemContainer = styled.div`
   height: 100%;
 `;
 
-const Image = styled.img`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-`;
-
 const Title = styled.span`
   white-space: normal;
 `;
 
 const Grid = styled.div`
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   display: grid;
   gap: 20px;
 
   @media (max-width: ${breakPoints.md}) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (max-width: ${breakPoints.sm}) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: ${breakPoints.xs}) {
+  @media (max-width: ${breakPoints.sm}) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;
 
 const A = styled.a`
   margin-top: 25px;
-`
+`;
 
 const Work: NextPage = () => {
   return (
@@ -90,9 +79,17 @@ const Work: NextPage = () => {
           <Link key={index} href={el.link ? el.link : ''} passHref>
             <A target='_blank'>
               <GridItemContainer>
-                <Description title={<Title>{el.name}</Title>} content={el.description}/>
+                <Description
+                  title={<Title>{el.name}</Title>}
+                  content={el.description}
+                />
                 <ImageCard>
-                  <Image src={el.image} alt={el.name}/>
+                  <Image
+                    src={el.image}
+                    alt={el.name}
+                    layout='fill'
+                    objectFit='cover'
+                  />
                   <Aspect />
                 </ImageCard>
               </GridItemContainer>
