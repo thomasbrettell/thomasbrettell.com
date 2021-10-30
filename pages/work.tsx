@@ -3,7 +3,6 @@ import {Text, Description, Divider, Tag, useToasts} from '@geist-ui/react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import {breakPoints} from '../constants';
-import Link from 'next/link';
 import work from '../work';
 import Image from 'next/image';
 

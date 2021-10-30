@@ -8,6 +8,8 @@ import MedaxImg from './assets/work-images/medax.png';
 import SacredShapesImg from './assets/work-images/sacredshapes.png';
 import SwitzImg from './assets/work-images/switz.png';
 import CWKImg from './assets/work-images/cwk.png';
+import SleepOrbitImg from './assets/work-images/sleeporbit.jpg';
+import CarbonQuizImg from './assets/work-images/carbonquiz.png';
 
 interface WorkItem {
   name: string;
@@ -19,6 +21,26 @@ interface WorkItem {
 }
 
 export const work: WorkItem[] = [
+  {
+    name: 'Mindr',
+    description:
+      'Decsission making tool for friends and family to agree on a film to watch.',
+    image: MedaxImg,
+    link: 'https://www.google.com',
+  },
+  {
+    name: 'National Digital Health Strategy Survey',
+    description:
+      "Collection of surveys to help guide the future of Australia's digital health approach.",
+    image: NDHSImg,
+    link: 'https://nationalstrategy.digitalhealth.gov.au/',
+  },
+  {
+    name: 'Medax',
+    description: 'Platform to host Patient Familiarisation Programs.',
+    image: MedaxImg,
+    notPublic: true,
+  },
   {
     name: 'Evolving Forest',
     description: 'NFT project involving randomly generated fantasy trees.',
@@ -46,29 +68,28 @@ export const work: WorkItem[] = [
     link: 'https://nationalstrategy.digitalhealth.gov.au/',
   },
   {
-    name: 'The Limbic',
-    description: 'Site for global health news, events and webinars.',
-    image: TheLimbicImg,
-    link: 'https://thelimbic.com/',
+    name: 'Sleep Orbit',
+    description: 'Concept design for a mental health Space Travel application.',
+    image: SleepOrbitImg,
+    link: 'https://www.youtube.com/watch?v=kIWMUkRbbkg&ab_channel=ThomasBrettell',
   },
   {
-    name: 'Mindr',
-    description:
-      'Decsission making tool for friends and family to agree on a film to watch.',
-    image: MedaxImg,
-    link: 'https://www.google.com',
-  },
-  {
-    name: 'Medax',
-    description: 'Platform to host Patient Familiarisation Programs.',
-    image: MedaxImg,
-    notPublic: true,
+    name: 'The Carbon Quiz',
+    description: '3D first person game to learn about Carbon Emissions.',
+    image: CarbonQuizImg,
+    link: 'https://thomasbrettell.itch.io/the-carbon-quiz-webgl',
   },
   {
     name: 'Switz',
     description: 'Website for an Insurance Firm.',
     image: SwitzImg,
     link: 'https://www.switz.com.au/',
+  },
+  {
+    name: 'The Limbic',
+    description: 'Site for global health news, events and webinars.',
+    image: TheLimbicImg,
+    link: 'https://thelimbic.com/',
   },
   {
     name: 'Cazna',
@@ -81,7 +102,7 @@ export const work: WorkItem[] = [
     name: 'Sacred Shapes',
     description: 'Website for a bespoke jewellery company + custom CMS.',
     image: SacredShapesImg,
-    comingSoon: true
+    comingSoon: true,
   },
   {
     name: 'The Company We:Keep',
