@@ -10,6 +10,7 @@ import SwitzImg from './assets/work-images/switz.png';
 import CWKImg from './assets/work-images/cwk.png';
 import SleepOrbitImg from './assets/work-images/sleeporbit.jpg';
 import CarbonQuizImg from './assets/work-images/carbonquiz.png';
+import MindrImg from './assets/work-images/mindr.png'
 
 interface WorkItem {
   name: string;
@@ -25,8 +26,8 @@ export const work: WorkItem[] = [
     name: 'Mindr',
     description:
       'Decsission making tool for friends and family to agree on a film to watch.',
-    image: MedaxImg,
-    link: 'https://www.google.com',
+    image: MindrImg,
+    link: 'https://mindr-flame.vercel.app/',
   },
   {
     name: 'National Digital Health Strategy Survey',

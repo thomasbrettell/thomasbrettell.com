@@ -19,6 +19,7 @@ import WordPressIcon from './assets/WordPressIcon'
 import PHPIcon from './assets/PHPIcon'
 import BlenderIcon from './assets/BlenderIcon'
 import MongoDBIcon from './assets/MongoDBIcon'
+import P5JSIcon from './assets/P5JSIcon'
 
 export const backend = [
   {
@@ -88,6 +89,10 @@ export const frontend = [
     name: 'Svelte',
     icon: SvelteIcon,
   },
+  {
+    name: 'p5js',
+    icon: P5JSIcon
+  }
 ];
 
 export const design = [

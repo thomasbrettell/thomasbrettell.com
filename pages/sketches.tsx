@@ -11,9 +11,7 @@ const Sketches: NextPage = () => {
       </Head>
       <Text h1>My Sketches</Text>
       <Text p>
-        I have recently become quiet interesting in the world of computer
-        graphics and generative art so I&apos;ve decided to document my progress
-        here.
+        My progress as I learn computer graphics and generative art.
       </Text>
       <Text p>
         The sketches below were written in the JavaScript version of Processing,
