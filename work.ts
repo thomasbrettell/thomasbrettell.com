@@ -25,9 +25,9 @@ export const work: WorkItem[] = [
   {
     name: 'Mindr',
     description:
-      'Decsission making tool for friends and family to agree on a film to watch.',
+      'Decision-making tool for friends and family to agree on a film to watch.',
     image: MindrImg,
-    link: 'https://mindr-flame.vercel.app/',
+    link: 'https://mindr-movies.vercel.app/',
   },
   {
     name: 'National Digital Health Strategy Survey',
@@ -62,27 +62,20 @@ export const work: WorkItem[] = [
     link: 'https://ata.college/',
   },
   {
-    name: 'National Digital Health Strategy Survey',
-    description:
-      "Collection of surveys to help guide the future of Australia's digital health approach.",
-    image: NDHSImg,
-    link: 'https://nationalstrategy.digitalhealth.gov.au/',
-  },
-  {
     name: 'Sleep Orbit',
-    description: 'Concept design for a mental health Space Travel application.',
+    description: 'Concept design for a mental health space travel application.',
     image: SleepOrbitImg,
     link: 'https://www.youtube.com/watch?v=kIWMUkRbbkg&ab_channel=ThomasBrettell',
   },
   {
     name: 'The Carbon Quiz',
-    description: '3D first person game to learn about Carbon Emissions.',
+    description: '3D first person game to learn about carbon emissions.',
     image: CarbonQuizImg,
     link: 'https://thomasbrettell.itch.io/the-carbon-quiz-webgl',
   },
   {
     name: 'Switz',
-    description: 'Website for an Insurance Firm.',
+    description: 'Website for an insurance firm.',
     image: SwitzImg,
     link: 'https://www.switz.com.au/',
   },

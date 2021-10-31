@@ -100,7 +100,7 @@ const Work: NextPage = () => {
         <meta name='description' content='See my work!' />
       </Head>
       <Text h1>My Work</Text>
-      <Text p>Some of the projects I have done or worked on.</Text>
+      <Text p>Some of the projects I have done and worked on.</Text>
       <Divider />
       <Grid>
         {work.map((el, index) => (
