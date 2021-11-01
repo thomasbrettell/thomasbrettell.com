@@ -23,7 +23,7 @@ import P5JSIcon from './assets/P5JSIcon'
 
 export const backend = [
   {
-    name: 'NextJS',
+    name: 'Next.js',
     icon: NextJSIcon,
   },
   {
@@ -66,7 +66,7 @@ export const frontend = [
     icon: JavaScriptIcon,
   },
   {
-    name: 'NextJS',
+    name: 'Next.js',
     icon: NextJSIcon,
   },
   {

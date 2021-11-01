@@ -6,6 +6,7 @@ const Box = styled.div`
   padding: 0 calc(1.34 * 16px) 0 calc(1.34 * 16px);
   margin: 0 auto 0 auto;
   box-sizing: border-box;
+  max-width: 42rem;
 
   @media (max-width: 650px) {
     width: 100%;

@@ -1,8 +1,8 @@
-import type {NextPage} from 'next';
-import {Text, Description, Divider, Tag, useToasts} from '@geist-ui/react';
+import type { NextPage } from 'next';
+import { Text, Description, Divider, Tag, useToasts } from '@geist-ui/react';
 import Head from 'next/head';
 import styled from 'styled-components';
-import {breakPoints} from '../constants';
+import { breakPoints } from '../constants';
 import work from '../work';
 import Image from 'next/image';
 
@@ -46,17 +46,9 @@ const Title = styled.span`
 `;
 
 const Grid = styled.div`
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   display: grid;
   gap: 20px;
-
-  @media (max-width: ${breakPoints.md}) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: ${breakPoints.sm}) {
-    grid-template-columns: repeat(1, 1fr);
-  }
 `;
 
 const A = styled.a`
@@ -90,7 +82,7 @@ const Work: NextPage = () => {
   const [, setToast] = useToasts();
 
   const toastHandler = () => {
-    setToast({text: 'Not publically available.', type: 'warning'});
+    setToast({ text: 'Not publically available.', type: 'warning' });
   };
 
   return (
