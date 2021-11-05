@@ -2,7 +2,7 @@ import snippets from '../../snippets';
 import { GetStaticProps, GetStaticPaths, InferGetStaticPropsType } from 'next';
 import styled from 'styled-components';
 import { Text, useMediaQuery } from '@geist-ui/react';
-import { CopyBlock, codepen } from 'react-code-blocks';
+import { CopyBlock, dracula } from 'react-code-blocks';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 const P5jsComponent = dynamic(() => import('../../components/P5Sketch'), {
@@ -19,6 +19,7 @@ const Icon = styled.div`
   overflow: hidden;
   display: inline-flex;
   border-radius: 9999px;
+  padding: 2px;
 `;
 
 const FlushedCode = styled.div`
@@ -45,27 +46,6 @@ const SnippetPage = ({
   const snippetData = snippets.find((snippet) => snippet.slug === slug);
   const isXs = useMediaQuery('xs');
 
-  const code = `class HelloMessage extends React.Component {
-    handlePress = () => {
-      alert('Hello')
-    }
-    render() {
-      return (
-        <div>
-          <p>Hello {this.props.name}</p>
-          <button onClick={this.handlePress}>
-            Say Hello
-          </button>
-        </div>
-      );
-    }
-  }
-  
-  ReactDOM.render(
-    <HelloMessage name="Taylor" />, 
-    mountNode 
-  );`;
-
   if (!snippetData) {
     return <>Loading...</>;
   }
@@ -88,21 +68,22 @@ const SnippetPage = ({
       </Flex>
       {snippetData.sketchId && (
         <Block>
-          <P5jsComponent sketchId={snippetData.sketchId}/>
+          <P5jsComponent sketchId={snippetData.sketchId} />
         </Block>
       )}
-      <Block>
-        <FlushedCode>
-          <CopyBlock
-            text={code}
-            language={'jsx'}
-            showLineNumbers={true}
-            theme={codepen}
-            wrapLines={false}
-            codeBlock
-          />
-        </FlushedCode>
-      </Block>
+      {snippetData.code && (
+        <Block>
+          <FlushedCode>
+            <CopyBlock
+              text={snippetData.code}
+              language={'jsx'}
+              showLineNumbers={true}
+              theme={dracula}
+              codeBlock
+            />
+          </FlushedCode>
+        </Block>
+      )}
     </>
   );
 };

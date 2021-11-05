@@ -1,9 +1,9 @@
-import PerlinNoiseSketch from './test';
+import PerlinNoiseSketch from './perlinNoise';
 import { Sketch } from 'react-p5-wrapper';
 
 interface SketchProps {
   id: string;
-  sketch: Sketch
+  sketch: Sketch,
 }
 
 const sketches: SketchProps[] = [
