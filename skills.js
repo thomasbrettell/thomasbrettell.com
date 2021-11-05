@@ -11,15 +11,15 @@ import WebpackIcon from './assets/WebpackIcon';
 import LessIcon from './assets/LessIcon';
 import JavaScriptIcon from './assets/JavaScriptIcon';
 import SvelteIcon from './assets/SvelteIcon';
-import AWSIcon from './assets/AWSIcon'
-import FirebaseIcon from './assets/FirebaseIcon'
-import AdobeIcon from './assets/AdobeIcon'
-import SQLIcon from './assets/SQLIcon'
-import WordPressIcon from './assets/WordPressIcon'
-import PHPIcon from './assets/PHPIcon'
-import BlenderIcon from './assets/BlenderIcon'
-import MongoDBIcon from './assets/MongoDBIcon'
-import P5JSIcon from './assets/P5JSIcon'
+import AWSIcon from './assets/AWSIcon';
+import FirebaseIcon from './assets/FirebaseIcon';
+import AdobeIcon from './assets/AdobeIcon';
+import SQLIcon from './assets/SQLIcon';
+import WordPressIcon from './assets/WordPressIcon';
+import PHPIcon from './assets/PHPIcon';
+import BlenderIcon from './assets/BlenderIcon';
+import MongoDBIcon from './assets/MongoDBIcon';
+import P5JSIcon from './assets/P5JSIcon';
 
 export const backend = [
   {
@@ -62,10 +62,6 @@ export const frontend = [
     icon: ReactIcon,
   },
   {
-    name: 'JavaScript',
-    icon: JavaScriptIcon,
-  },
-  {
     name: 'Next.js',
     icon: NextJSIcon,
   },
@@ -76,6 +72,10 @@ export const frontend = [
   {
     name: 'TypeScript',
     icon: TypeScriptIcon,
+  },
+  {
+    name: 'JavaScript',
+    icon: JavaScriptIcon,
   },
   {
     name: 'Scss',
@@ -90,9 +90,9 @@ export const frontend = [
     icon: SvelteIcon,
   },
   {
-    name: 'p5js',
-    icon: P5JSIcon
-  }
+    name: 'p5.js',
+    icon: P5JSIcon,
+  },
 ];
 
 export const design = [

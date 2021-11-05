@@ -33,8 +33,8 @@ const SkillItem = styled.div`
   justify-content: space-between;
   font-size: 12px;
   font-weight: bold;
-  margin-right: 25px;
-  margin-bottom: 25px;
+  margin-right: 24px;
+  margin-bottom: 24px;
   position: relative;
 `;
 
@@ -64,7 +64,7 @@ const About: NextPage = () => {
       </Head>
       <Text h1>About me</Text>
       <Text p>
-        I&apos;m a 21 year old Developer/UI Designer with a degree in{' '}
+        Developer/UI Designer with a degree in{' '}
         <Link
           color
           target='_blank'

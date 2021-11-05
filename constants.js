@@ -10,7 +10,7 @@ export const pages = [
   {name: 'Work', link: '/work'},
   {name: 'About', link: '/about'},
   {name: 'Contact', link: '/contact'},
-  {name: 'Sketches', link: '/sketches'},
+  {name: 'Snippets', link: '/snippets'},
 ];
 
 export const email = 'thomas.a.brettell@gmail.com';

@@ -23,7 +23,7 @@ const Home = () => {
         <NavButton href='/work'>WORK</NavButton>
         <NavButton href='/about' noBorder>ABOUT</NavButton>
         <NavButton href='/contact' noBorder>CONTACT</NavButton>
-        <NavButton href='/sketches'>SKETCHES</NavButton>
+        <NavButton href='/snippets'>SNIPPETS</NavButton>
       </Grid>
     </>
   );
