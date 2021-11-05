@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { Text, useMediaQuery } from '@geist-ui/react';
 import { CopyBlock, codepen } from 'react-code-blocks';
 import Head from 'next/head';
-import test from '../../sketches/test';
 import dynamic from 'next/dynamic';
 const P5jsComponent = dynamic(() => import('../../components/P5Sketch'), {
   ssr: false,
@@ -87,9 +86,11 @@ const SnippetPage = ({
           <snippetData.icon />
         </Icon>
       </Flex>
-      <Block>
-        <P5jsComponent sketch={test} />
-      </Block>
+      {snippetData.sketchId && (
+        <Block>
+          <P5jsComponent sketchId={snippetData.sketchId}/>
+        </Block>
+      )}
       <Block>
         <FlushedCode>
           <CopyBlock
