@@ -21,9 +21,13 @@ const Icon = styled.div`
 
 const FlushedCode = styled.div`
   code {
-    font-size: 16px;
+    font-size: 16px !important;
     font-family: monospace !important;
     white-space: pre;
+
+    span {
+      font-size: 16px !important;
+    }
 
     &:after {
       display: none;
