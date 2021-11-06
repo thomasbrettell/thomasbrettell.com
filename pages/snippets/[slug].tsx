@@ -16,15 +16,13 @@ const Flex = styled.div`
 `;
 
 const Icon = styled.div`
-  overflow: hidden;
   display: inline-flex;
-  border-radius: 9999px;
-  padding: 2px;
 `;
 
 const FlushedCode = styled.div`
   code {
     font-family: monospace !important;
+    white-space: pre;
 
     &:after {
       display: none;

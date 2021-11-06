@@ -116,8 +116,8 @@ export const design = [
     name: 'UX Methodologies',
     icon: UXIcon,
   },
-  {
-    name: 'Blender',
-    icon: BlenderIcon,
-  },
+  // {
+  //   name: 'Blender',
+  //   icon: BlenderIcon,
+  // },
 ];

@@ -10,7 +10,7 @@ import SwitzImg from './assets/work-images/switz.png';
 import CWKImg from './assets/work-images/cwk.png';
 import SleepOrbitImg from './assets/work-images/sleeporbit.jpg';
 import CarbonQuizImg from './assets/work-images/carbonquiz.png';
-import MindrImg from './assets/work-images/mindr.png'
+import MindrImg from './assets/work-images/mindr.png';
 
 interface WorkItem {
   name: string;
@@ -23,13 +23,6 @@ interface WorkItem {
 
 export const work: WorkItem[] = [
   {
-    name: 'Mindr',
-    description:
-      'Decision-making tool for friends and family to agree on a film to watch.',
-    image: MindrImg,
-    link: 'https://mindr-movies.vercel.app/',
-  },
-  {
     name: 'National Digital Health Strategy Survey',
     description:
       "Collection of surveys to help guide the future of Australia's digital health approach.",
@@ -41,6 +34,13 @@ export const work: WorkItem[] = [
     description: 'Platform to host Patient Familiarisation Programs.',
     image: MedaxImg,
     notPublic: true,
+  },
+  {
+    name: 'Mindr',
+    description:
+      'Decision-making tool for friends and family to agree on a film to watch.',
+    image: MindrImg,
+    link: 'https://mindr-movies.vercel.app/',
   },
   {
     name: 'Evolving Forest',

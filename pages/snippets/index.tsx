@@ -4,11 +4,16 @@ import { Text, Divider, Card, Avatar } from '@geist-ui/react';
 import styled from 'styled-components';
 import snippets from '../../snippets';
 import Link from 'next/link';
+import { breakPoints } from '../../constants';
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
+
+  @media (max-width: ${breakPoints.xs}) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 const CardContent = styled.div`
@@ -17,8 +22,6 @@ const CardContent = styled.div`
 `;
 
 const Icon = styled.div`
-  border-radius: 9999px;
-  overflow: hidden;
   display: inline-flex;
   height: 32px;
   width: 32px;
@@ -41,7 +44,7 @@ const Snippets: NextPage = () => {
         {snippets.map((snippet) => (
           <Link key={snippet.slug} href={`/snippets/${snippet.slug}`} passHref>
             <a>
-              <Card>
+              <Card h='100%'>
                 <CardContent>
                   <div style={{ display: 'inline-flex' }}>
                     <Icon>
