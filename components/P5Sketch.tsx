@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 interface P5SketchProp {
   sketchId: string;
+  onPoint?: any;
 }
 
 const SketchWrapper = styled.div`
@@ -15,7 +16,7 @@ const SketchWrapper = styled.div`
   }
 `;
 
-const P5Sketch: FC<P5SketchProp> = ({ sketchId }) => {
+const P5Sketch: FC<P5SketchProp> = ({ sketchId, onPoint }) => {
   const sketch = sketches.find((sketch) => sketch.id === sketchId);
 
   if (!sketch?.sketch) {
@@ -24,7 +25,7 @@ const P5Sketch: FC<P5SketchProp> = ({ sketchId }) => {
 
   return (
     <SketchWrapper>
-      <ReactP5Wrapper sketch={sketch.sketch} />
+      <ReactP5Wrapper sketch={sketch.sketch} onPoint={onPoint} />
     </SketchWrapper>
   );
 };

@@ -147,6 +147,7 @@ const Contact: NextPage = () => {
             placeholder='Enquiry'
             width='100%'
             id='enquiry'
+            rows={6}
             name='enquiry'
             onChange={handleChange}
             value={values.enquiry}

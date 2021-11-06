@@ -1,11 +1,24 @@
-import type {NextPage} from 'next';
+import type { NextPage } from 'next';
 import Head from 'next/head';
-import {Text, Link, Divider, Card, Code, useMediaQuery} from '@geist-ui/react';
-import {Tabs, TabButton, TabContainer} from '../components/CustomTabGroup';
-import {useState} from 'react';
-import styled, {css} from 'styled-components';
-import {frontend, backend, design} from '../skills';
-import {breakPoints} from '../constants';
+import {
+  Text,
+  Link,
+  Divider,
+  Card,
+  Code,
+  useMediaQuery,
+  Tag,
+} from '@geist-ui/react';
+import NextLink from 'next/link';
+import { Tabs, TabButton, TabContainer } from '../components/CustomTabGroup';
+import { useState } from 'react';
+import styled, { css } from 'styled-components';
+import { frontend, backend, design } from '../skills';
+import { breakPoints } from '../constants';
+import dynamic from 'next/dynamic';
+const P5jsComponent = dynamic(() => import('../components/P5Sketch'), {
+  ssr: false,
+});
 interface SkillContainerProps {
   spaced?: boolean;
 }
@@ -55,6 +68,11 @@ const Mobile = styled.div`
 const About: NextPage = () => {
   const [tabValue, setTabValue] = useState('Frontend');
   const isXs = useMediaQuery('xs');
+  const [gamePoints, setGamePoints] = useState(0);
+
+  const pointIncreaseHandler = () => {
+    setGamePoints(gamePoints + 1);
+  };
 
   return (
     <>
@@ -79,11 +97,34 @@ const About: NextPage = () => {
         React/Next.js.
         <br />
         In the world of{' '}
-        <Text type='success' span i>
+        <Text type='error' span i>
           design
         </Text>{' '}
         my interests lie with Design Systems.
       </Text>
+      {!isXs && (
+        <>
+          <Text mb='10px' mt='25px' font='14px'>
+            Here is a &quot;fun&quot; little game that you can play if you want.{' '}
+            <br />
+            Use the <Code>arrow keys</Code> to move the ship and fly it into the
+            dot for a point.
+            <br />
+            <Text small>
+              You can see more of this kind of thing on the{' '}
+              <NextLink href='/snippets'>
+                <Link color>Snippets page</Link>
+              </NextLink>
+              .
+            </Text>
+          </Text>
+          <Tag mb='5px'>Points: {gamePoints}</Tag>
+          <P5jsComponent
+            sketchId={'pilot-game'}
+            onPoint={pointIncreaseHandler}
+          />
+        </>
+      )}
       <Divider my='30px' />
       <Text h3>Skills</Text>
       <Desktop>
@@ -142,7 +183,7 @@ const About: NextPage = () => {
               <Text small>Backend</Text>
             </TabButton>
           </Tabs>
-          <Card.Content style={{backgroundColor: 'white'}}>
+          <Card.Content style={{ backgroundColor: 'white' }}>
             <SkillContainer spaced>
               {tabValue === 'Frontend' &&
                 frontend.map((el) => (
