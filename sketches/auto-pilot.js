@@ -52,7 +52,6 @@ const sketch = (p) => {
       p.translate(this.pos.x, this.pos.y);
       p.rotate(this.angle);
       p.line(0, 0, this.r, 0);
-      // p.rect(0, 0, this.r * 2, this.r);
       p.triangle(-this.r, -this.r / 2, -this.r, this.r / 2, this.r, 0);
       p.pop();
     }
@@ -118,7 +117,6 @@ const sketch = (p) => {
       });
     }
 
-    // p.mover.checkEdges()
     p.mover.update();
     p.mover.display();
   };

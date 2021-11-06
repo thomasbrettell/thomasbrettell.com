@@ -20,7 +20,6 @@ const sketch = (p5) => {
       this.y = p5.map(ny, 0, 1, 0, p5.height);
 
       p5.line(prevx, prevy, this.x, this.y);
-      // p5.circle(this.x, this.y, 16);
     }
   }
 

@@ -42,7 +42,7 @@ const Snippets: NextPage = () => {
       <Divider mb='20px' />
       <Grid>
         {snippets.map((snippet) => (
-          <Link key={snippet.slug} href={`/snippets/${snippet.slug}`} passHref>
+          <Link key={snippet.slug} href={`/snippets/${snippet.slug}`} passHref scroll={true}>
             <a>
               <Card h='100%'>
                 <CardContent>

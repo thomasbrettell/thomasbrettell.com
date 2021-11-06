@@ -112,7 +112,7 @@ const About: NextPage = () => {
             <br />
             <Text small>
               You can see more of this kind of thing on the{' '}
-              <NextLink href='/snippets'>
+              <NextLink href='/snippets' passHref>
                 <Link color>Snippets page</Link>
               </NextLink>
               .

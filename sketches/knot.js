@@ -100,8 +100,6 @@ const sketch = (p5) => {
   p5.draw = () => {
     p5.background(255);
 
-    // p5.attractor.display();
-
     p5.movers.forEach((mover, index) => {
       if (index + 1 === p5.movers.length) {
         mover.headTo(p5.movers[0].pos);
