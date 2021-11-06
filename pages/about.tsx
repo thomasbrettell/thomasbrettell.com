@@ -118,7 +118,7 @@ const About: NextPage = () => {
               .
             </Text>
           </Text>
-          <Tag mb='5px'>Points: {gamePoints}</Tag>
+          <Tag mt='20px' mb='5px'>Points: {gamePoints}</Tag>
           <P5jsComponent
             sketchId={'pilot-game'}
             onPoint={pointIncreaseHandler}

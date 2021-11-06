@@ -227,7 +227,7 @@ export const counterActions = counterSlice.actions
 export default counterSlice.reducer`,
   },
   {
-    title: 'Processing knot',
+    title: 'Processing Knot',
     slug: 'processing-knot',
     sketchId: 'knot',
     description: 'p5.js sketch',
@@ -340,7 +340,7 @@ export default sketch;`,
   {
     icon: P5JSIcon,
     slug: 'perlin-noise',
-    title: 'Perlin noise line',
+    title: 'Perlin Noise Line',
     description: 'p5.js sketch',
     sketchId: 'perlin-noise',
     code: `const sketch = (p5) => {
