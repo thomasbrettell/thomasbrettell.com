@@ -1,6 +1,9 @@
 import P5JSIcon from './assets/P5JSIcon';
 import ReactIcon from './assets/ReactIcon';
 import NodejsIcon from './assets/NodeJSIcon';
+import WebpackIcon from './assets/WebpackIcon';
+import FirebaseIcon from './assets/FirebaseIcon'
+import JSIcon from './assets/JavaScriptIcon'
 import { FC } from 'react';
 
 interface SnippetProps {
@@ -122,6 +125,150 @@ const useInput = (validate) => {
 }
 
 export default useInput;`,
+  },
+  {
+    title: '<AspectRatio />',
+    description: 'React component',
+    slug: 'aspectratio',
+    icon: ReactIcon,
+    code: `import styled, { css } from "styled-components";
+import { FC } from "react";
+
+const Box = styled.div\`
+  border: 1px solid black;
+  position: relative;
+\`;
+
+interface RatioProps {
+  ratio: number;
+}
+
+const Ratio = styled.div<RatioProps>\`
+  \${(props) =>
+    props &&
+    css\`
+      padding-bottom: \${props.ratio}%;
+    \`}
+\`;
+
+const Content = styled.div\`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+\`;
+
+interface AspectRatioProps {
+  ratio: number;
+}
+
+const AspectRatio: FC<AspectRatioProps> = ({ children, ratio }) => {
+  return (
+    <Box>
+      <Content>{children}</Content>
+      <Ratio ratio={ratio * 100} />
+    </Box>
+  );
+};
+
+export default AspectRatio;`,
+  },
+  {
+    title: 'Webpack Setup',
+    description: 'Basic prod + dev Webpack setup',
+    icon: WebpackIcon,
+    code: `//webpack.common.js
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: './src/app.ts',
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+  output: {
+    filename: 'bundle.[contenthash].js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Development',
+      template: 'index.html'
+    }),
+  ],
+};
+
+//webpack.dev.js
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
+
+module.exports = merge(common, {
+  mode: 'development',
+  devtool: 'inline-source-map',
+  devServer: {
+    static: './dist',
+  },
+});
+
+//webpack.prod.js
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
+const CleanPlugin = require('clean-webpack-plugin')
+
+module.exports = merge(common, {
+  mode: 'production',
+  plugins: [
+    new CleanPlugin.CleanWebpackPlugin()
+  ],
+});`,
+    slug: 'webpack',
+  },
+  {
+    title: 'Basic Firebase setup',
+    description: 'Firebase setup for prod, local and emulator',
+    slug: 'firebase',
+     icon: FirebaseIcon,
+    code: `import {initializeApp} from "firebase/app";
+import {getFunctions, connectFunctionsEmulator} from "firebase/functions";
+import {getFirestore, connectFirestoreEmulator} from "firebase/firestore";
+import {getDatabase, connectDatabaseEmulator} from "firebase/database";
+
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SEND_APP,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+};
+
+const app = initializeApp(firebaseConfig);
+
+export const functions = getFunctions(app);
+export const firestore = getFirestore(app);
+export const database = getDatabase(app);
+
+if (window.location.hostname === "localhost") {
+  connectFunctionsEmulator(functions, "localhost", 5001);
+  connectFirestoreEmulator(firestore, "localhost", 8080);
+  connectDatabaseEmulator(database, "localhost", 9000);
+}
+export default app;`
   },
   {
     slug: 'sendgrid',
@@ -689,6 +836,19 @@ export default sketch;`,
 export default sketch;
 `,
   },
+  {
+    title: 'Fix 100vh on mobile',
+    description: "Make 100vh not include the navigation bar",
+    slug: 'fix-mobile-fullscreen',
+    icon: JSIcon,
+    code: `let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', \`\${vh}px\`);
+
+window.addEventListener('resize', () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', \`\${vh}px\`);
+});`
+  }
 ];
 
 export default snippets;
