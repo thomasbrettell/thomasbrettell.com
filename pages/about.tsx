@@ -102,29 +102,6 @@ const About: NextPage = () => {
         </Text>{' '}
         my interests lie with Design Systems.
       </Text>
-      {!isXs && (
-        <>
-          <Text mb='10px' mt='25px' font='14px'>
-            Here is a &quot;fun&quot; little game that you can play if you want.{' '}
-            <br />
-            Use the <Code>arrow keys</Code> to move the ship and fly it into the
-            dot for a point.
-            <br />
-            <Text small>
-              You can see more of this kind of thing on the{' '}
-              <NextLink href='/snippets' passHref>
-                <Link color>Snippets page</Link>
-              </NextLink>
-              .
-            </Text>
-          </Text>
-          <Tag mt='20px' mb='5px'>Points: {gamePoints}</Tag>
-          <P5jsComponent
-            sketchId={'pilot-game'}
-            onPoint={pointIncreaseHandler}
-          />
-        </>
-      )}
       <Divider my='30px' />
       <Text h3>Skills</Text>
       <Desktop>
@@ -210,6 +187,31 @@ const About: NextPage = () => {
           </Card.Content>
         </TabContainer>
       </Mobile>
+      {!isXs && (
+        <>
+          <Text mb='10px' mt='25px' font='14px'>
+            Here is a &quot;fun&quot; little game that you can play if you want.{' '}
+            <br />
+            Use the <Code>arrow keys</Code> to move the ship and fly it into the
+            dot for a point.
+            <br />
+            <Text small>
+              You can see more of this kind of thing on the{' '}
+              <NextLink href='/snippets' passHref>
+                <Link color>Snippets page</Link>
+              </NextLink>
+              .
+            </Text>
+          </Text>
+          <Tag mt='20px' mb='5px'>
+            Points: {gamePoints}
+          </Tag>
+          <P5jsComponent
+            sketchId={'pilot-game'}
+            onPoint={pointIncreaseHandler}
+          />
+        </>
+      )}
     </>
   );
 };
