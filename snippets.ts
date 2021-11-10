@@ -271,6 +271,67 @@ if (window.location.hostname === "localhost") {
 export default app;`
   },
   {
+    title: 'useFormik Example',
+    description: "Simple example of how to implment useFormik + Yup",
+    slug: 'formik',
+    icon: ReactIcon,
+    code: `import {useFormik} from 'formik';
+import * as Yup from 'yup';
+
+const formikExample = () => {
+  const validationSchema = Yup.object({
+    enquiry: Yup.string().required('Required'),
+    email: Yup.string().email('Invalid email').required('Required'),
+  });
+  
+  const {handleSubmit, values, errors, touched, handleChange, resetForm} = useFormik({
+    initialValues: {
+      enquiry: '',
+      email: '',
+    },
+    validationSchema,
+    onSubmit: (values) => {
+      setLoading(true);
+      fetch(fetchUrl)
+    },
+  });
+
+  return (
+    <Form onSubmit={handleSubmit}>
+      <FormControl>
+      <Input
+        placeholder='Email'
+        width='100%'
+        id='email'
+        name='email'
+        htmlType='email'
+        onChange={handleChange}
+        value={values.email}
+        type={errors.email && touched.email ? 'error' : 'default'}
+      />
+      </FormControl>
+      <FormControl>
+        <Textarea
+          placeholder='Enquiry'
+          width='100%'
+          id='enquiry'
+          rows={6}
+          name='enquiry'
+          onChange={handleChange}
+          value={values.enquiry}
+          type={errors.enquiry && touched.enquiry ? 'error' : 'default'}
+        ></Textarea>
+      </FormControl>
+      <FormControl>
+        <Button htmlType='submit' ghost auto scale={0.7} loading={loading}>
+          Submit
+        </Button>
+      </FormControl>
+    </Form>
+  )
+}`
+  },
+  {
     slug: 'sendgrid',
     title: 'SendGrid',
     description: 'Send HTML email template with SendGrid',
