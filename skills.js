@@ -8,18 +8,19 @@ import ScssIcon from './assets/ScssIcon';
 import FigmaIcon from './assets/FigmaIcon';
 import SketchIcon from './assets/SketchIcon';
 import WebpackIcon from './assets/WebpackIcon';
-import LessIcon from './assets/LessIcon';
+// import LessIcon from './assets/LessIcon';
 import JavaScriptIcon from './assets/JavaScriptIcon';
-import SvelteIcon from './assets/SvelteIcon';
+// import SvelteIcon from './assets/SvelteIcon';
 import AWSIcon from './assets/AWSIcon';
 import FirebaseIcon from './assets/FirebaseIcon';
 import AdobeIcon from './assets/AdobeIcon';
 import SQLIcon from './assets/SQLIcon';
 import WordPressIcon from './assets/WordPressIcon';
 import PHPIcon from './assets/PHPIcon';
-import BlenderIcon from './assets/BlenderIcon';
+// import BlenderIcon from './assets/BlenderIcon';
 import MongoDBIcon from './assets/MongoDBIcon';
 import P5JSIcon from './assets/P5JSIcon';
+import D3Icon from './assets/D3Icon'
 
 export const backend = [
   {
@@ -78,17 +79,21 @@ export const frontend = [
     icon: JavaScriptIcon,
   },
   {
+    name: 'D3.js',
+    icon: D3Icon,
+  },
+  {
     name: 'Scss',
     icon: ScssIcon,
   },
-  {
-    name: 'Less',
-    icon: LessIcon,
-  },
-  {
-    name: 'Svelte',
-    icon: SvelteIcon,
-  },
+  // {
+  //   name: 'Less',
+  //   icon: LessIcon,
+  // },
+  // {
+  //   name: 'Svelte',
+  //   icon: SvelteIcon,
+  // },
   {
     name: 'p5.js',
     icon: P5JSIcon,
