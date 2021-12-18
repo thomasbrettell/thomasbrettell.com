@@ -154,19 +154,20 @@ const sketch = (p) => {
     p.textAlign(p.LEFT);
 
     if (gameState === STARTED) {
-      if (p.frameCount % 60 == 0) {
-        p.timer--;
-      }
-      if (p.timer <= 0) {
-        gameState = GAME_OVER;
-      }
-
       p.startButton.hide();
       p.replayButton.hide();
       p.point.display();
       p.fill(0, 0, 0);
-      p.text(`Time left: ${p.timer}`, 20, 20);
-      p.text(`Score: ${p.points}`, 20, 40);
+      if (p.timer === 1) {
+        p.fill(255, 0, 0);
+      }
+      p.textAlign(p.CENTER);
+      p.textSize(16 * (5 - p.timer));
+      p.text(p.timer, p.width / 2, 60);
+      p.fill(0, 0, 0);
+      p.textSize(12);
+      p.textAlign(p.LEFT);
+      p.text(`Score: ${p.points}`, 20, 20);
 
       let d = Vector.dist(p.ship.pos, p.point.pos);
       if (d < p.ship.radius + p.point.radius) {
@@ -189,6 +190,13 @@ const sketch = (p) => {
       }
       p.ship.checkEdges();
       p.ship.display();
+
+      if (p.frameCount % 60 == 0) {
+        p.timer--;
+      }
+      if (p.timer <= 0) {
+        gameState = GAME_OVER;
+      }
     } else if (gameState === NOT_STARTED) {
       p.startButton.show();
       p.timer = INTERVAL_TIME;

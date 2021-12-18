@@ -88,14 +88,12 @@ const About: NextPage = () => {
         from the University of Sydney.
       </Text>
       <Text p>
-        In the world of <Code>developing</Code> I have an affinity for
-        React/Next.js.
-        <br />
-        In the world of{' '}
+        Im all about utilising <code>component</code> drive development and
+        design to create{' '}
         <Text type='error' span i>
-          design
+          innovative
         </Text>{' '}
-        my interests lie with Design Systems.
+        and helpful products.
       </Text>
       <Divider my='30px' />
       <Text h3>Skills</Text>
@@ -190,8 +188,8 @@ const About: NextPage = () => {
             Use the <Code>arrow keys</Code> to move the ship and fly it into the
             dot for a point.
             <br />
-            If you filed to get a point within 4 seconds then the game is{' '}
-            <strong>over</strong>.
+            If you fail to get a point within <strong>4 seconds</strong> then
+            the game is <strong>over</strong>.
             <br />
             Let me know how many points you got by emailing me through the{' '}
             <NextLink href='/contact' passHref>
