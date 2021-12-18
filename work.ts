@@ -11,6 +11,7 @@ import CWKImg from './assets/work-images/cwk.png';
 import SleepOrbitImg from './assets/work-images/sleeporbit.jpg';
 import CarbonQuizImg from './assets/work-images/carbonquiz.png';
 import MindrImg from './assets/work-images/mindr.png';
+import DataVisualisationPorfolio from './assets/work-images/data-visualisation-portfolio.png';
 
 interface WorkItem {
   name: string;
@@ -43,10 +44,22 @@ export const work: WorkItem[] = [
     link: 'https://mindr-movies.vercel.app/',
   },
   {
+    name: 'Data Visualisation Portfolio',
+    description: 'A centeral location for all my personal data visualisations',
+    image: DataVisualisationPorfolio,
+    link: 'https://data.thomasbrettell.com/',
+  },
+  {
     name: 'Evolving Forest',
     description: 'NFT project involving randomly generated fantasy trees.',
     image: EvolvingForestImg,
     link: 'https://evolvingforest.io/',
+  },
+  {
+    name: 'The Limbic',
+    description: 'Site for global health news, events and webinars.',
+    image: TheLimbicImg,
+    link: 'https://thelimbic.com/',
   },
   {
     name: 'Rainicorn',
@@ -80,23 +93,11 @@ export const work: WorkItem[] = [
     link: 'https://www.switz.com.au/',
   },
   {
-    name: 'The Limbic',
-    description: 'Site for global health news, events and webinars.',
-    image: TheLimbicImg,
-    link: 'https://thelimbic.com/',
-  },
-  {
     name: 'Cazna',
     description:
       'Website for an Australian and New Zealand horticulture company.',
     image: CaznaImg,
     link: 'https://www.cazna.com.au/',
-  },
-  {
-    name: 'Sacred Shapes',
-    description: 'Website for a bespoke jewellery company + custom CMS.',
-    image: SacredShapesImg,
-    comingSoon: true,
   },
   {
     name: 'The Company We:Keep',
