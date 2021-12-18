@@ -1,9 +1,20 @@
 import { Vector } from 'p5';
 
+const NOT_STARTED = 'NOT_STARTED';
+const STARTED = 'STARTED';
+const GAME_OVER = 'GAME_OVER';
+
+const INTERVAL_TIME = 4;
+
 const sketch = (p) => {
-  let pointIncreaseHandler;
-  p.updateWithProps = (props) => {
-    pointIncreaseHandler = props.onPoint;
+  let gameState = NOT_STARTED;
+
+  p.startGame = () => {
+    gameState = STARTED;
+    p.points = 0;
+    p.timer = INTERVAL_TIME;
+    p.ship.reset();
+    p.point.reset();
   };
 
   class Point {
@@ -21,8 +32,16 @@ const sketch = (p) => {
       p.circle(this.pos.x, this.pos.y, this.radius);
     }
 
+    reset() {
+      this.pos = p.createVector(
+        p.int(p.random(p.width)),
+        p.int(p.random(p.height))
+      );
+    }
+
     reposition() {
-      pointIncreaseHandler()
+      p.points++;
+      p.timer = INTERVAL_TIME;
       this.pos = p.createVector(
         p.int(p.random(p.width)),
         p.int(p.random(p.height))
@@ -32,6 +51,16 @@ const sketch = (p) => {
 
   class Ship {
     constructor() {
+      this.pos = p.createVector(p.width / 2, p.height / 2);
+      this.vel = p.createVector(0, 0);
+      this.acc = p.createVector(0, 0);
+      this.radius = 16;
+      this.r = 0;
+      this.theta = 0;
+      this.topSpeed = 15;
+    }
+
+    reset() {
       this.pos = p.createVector(p.width / 2, p.height / 2);
       this.vel = p.createVector(0, 0);
       this.acc = p.createVector(0, 0);
@@ -82,42 +111,97 @@ const sketch = (p) => {
         this.pos.y = p.height;
       }
     }
-
-    headTo() {}
   }
 
   p.setup = () => {
     p.createCanvas(800, 300);
     p.ship = new Ship();
     p.point = new Point();
+
+    p.points = 0;
+
+    p.timer = INTERVAL_TIME;
+
+    p.startButton = p.createButton('Start game');
+    p.startButton.style('transform', 'translate(-50%, -50%)');
+    p.startButton.style('left', '50%');
+    p.startButton.style('top', '50%');
+    p.startButton.style('position', 'absolute');
+    p.startButton.style('appearance', 'none');
+    p.startButton.style('background', 'none');
+    p.startButton.style('border', '1px solid black');
+    p.startButton.style('border-radius', '4px');
+    p.startButton.style('font-size', '12px');
+    p.startButton.mousePressed(p.startGame);
+
+    p.replayButton = p.createButton('Play again');
+    p.replayButton.style('transform', 'translate(-50%, -50%)');
+    p.replayButton.style('left', '50%');
+    p.replayButton.style('top', '50%');
+    p.replayButton.style('position', 'absolute');
+    p.replayButton.style('appearance', 'none');
+    p.replayButton.style('background', 'none');
+    p.replayButton.style('border', '1px solid black');
+    p.replayButton.style('border-radius', '4px');
+    p.replayButton.style('font-size', '12px');
+    p.replayButton.mousePressed(p.startGame);
+    p.replayButton.hide();
   };
 
   p.draw = () => {
     p.background(255, 100);
+    p.textSize(12);
+    p.textAlign(p.LEFT);
 
-    p.point.display();
+    if (gameState === STARTED) {
+      if (p.frameCount % 60 == 0) {
+        p.timer--;
+      }
+      if (p.timer <= 0) {
+        gameState = GAME_OVER;
+      }
 
-    let d = Vector.dist(p.ship.pos, p.point.pos);
-    if (d < p.ship.radius + p.point.radius) {
-      p.point.reposition();
-    }
+      p.startButton.hide();
+      p.replayButton.hide();
+      p.point.display();
+      p.fill(0, 0, 0);
+      p.text(`Time left: ${p.timer}`, 20, 20);
+      p.text(`Score: ${p.points}`, 20, 40);
 
-    if (p.keyIsDown(p.UP_ARROW)) {
-      p.ship.accelerate(0.1);
-    } else if (p.keyIsDown(p.DOWN_ARROW)) {
-      p.ship.accelerate(-0.35);
-    } else {
-      p.ship.accelerate(-0.05);
-    }
+      let d = Vector.dist(p.ship.pos, p.point.pos);
+      if (d < p.ship.radius + p.point.radius) {
+        p.point.reposition();
+      }
 
-    if (p.keyIsDown(p.LEFT_ARROW)) {
-      p.ship.turn(-0.1);
+      if (p.keyIsDown(p.UP_ARROW)) {
+        p.ship.accelerate(0.1);
+      } else if (p.keyIsDown(p.DOWN_ARROW)) {
+        p.ship.accelerate(-0.35);
+      } else {
+        p.ship.accelerate(-0.05);
+      }
+
+      if (p.keyIsDown(p.LEFT_ARROW)) {
+        p.ship.turn(-0.1);
+      }
+      if (p.keyIsDown(p.RIGHT_ARROW)) {
+        p.ship.turn(0.1);
+      }
+      p.ship.checkEdges();
+      p.ship.display();
+    } else if (gameState === NOT_STARTED) {
+      p.startButton.show();
+      p.timer = INTERVAL_TIME;
+    } else if (gameState === GAME_OVER) {
+      p.textSize(16);
+      p.textAlign(p.CENTER);
+      p.text(
+        `You scored ${p.points} ${p.points === 1 ? 'point' : 'points'}`,
+        p.width / 2,
+        p.height / 2 - 50
+      );
+      p.replayButton.show();
     }
-    if (p.keyIsDown(p.RIGHT_ARROW)) {
-      p.ship.turn(0.1);
-    }
-    p.ship.checkEdges();
-    p.ship.display();
   };
 };
 

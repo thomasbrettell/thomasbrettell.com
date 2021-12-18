@@ -11,6 +11,7 @@ interface P5SketchProp {
 const SketchWrapper = styled.div`
   display: flex;
   justify-content: center;
+  position: relative;
   canvas {
     border: 1px solid var(--border-grey);
   }

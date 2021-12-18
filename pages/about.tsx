@@ -68,11 +68,6 @@ const Mobile = styled.div`
 const About: NextPage = () => {
   const [tabValue, setTabValue] = useState('Frontend');
   const isXs = useMediaQuery('xs');
-  const [gamePoints, setGamePoints] = useState(0);
-
-  const pointIncreaseHandler = () => {
-    setGamePoints(gamePoints + 1);
-  };
 
   return (
     <>
@@ -195,6 +190,15 @@ const About: NextPage = () => {
             Use the <Code>arrow keys</Code> to move the ship and fly it into the
             dot for a point.
             <br />
+            If you filed to get a point within 4 seconds then the game is{' '}
+            <strong>over</strong>.
+            <br />
+            Let me know how many points you got by emailing me through the{' '}
+            <NextLink href='/contact' passHref>
+              <Link color>Contact page</Link>
+            </NextLink>
+            .
+            <br />
             <Text small>
               You can see more of this kind of thing on the{' '}
               <NextLink href='/snippets' passHref>
@@ -203,13 +207,7 @@ const About: NextPage = () => {
               .
             </Text>
           </Text>
-          <Tag mt='20px' mb='5px'>
-            Points: {gamePoints}
-          </Tag>
-          <P5jsComponent
-            sketchId={'pilot-game'}
-            onPoint={pointIncreaseHandler}
-          />
+          <P5jsComponent sketchId={'pilot-game'} />
         </>
       )}
     </>
