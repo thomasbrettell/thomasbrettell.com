@@ -7,10 +7,10 @@ export const breakPoints = {
 };
 
 export const pages = [
-  {name: 'Work', link: '/work'},
-  {name: 'About', link: '/about'},
-  {name: 'Contact', link: '/contact'},
-  {name: 'Snippets', link: '/snippets'},
+  { name: 'About', link: '/' },
+  { name: 'Work', link: '/work' },
+  { name: 'Contact', link: '/contact' },
+  { name: 'Snippets', link: '/snippets' },
 ];
 
 export const email = 'thomas.a.brettell@gmail.com';

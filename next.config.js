@@ -4,4 +4,13 @@ module.exports = {
   images: {
     domains: ['www.pixsy.com'],
   },
-}
+  async redirects() {
+    return [
+      {
+        source: '/about',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
+};
